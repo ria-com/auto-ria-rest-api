@@ -6,26 +6,26 @@
 
 ## Содержание
 
-- 1. [Подсчет средней цены](#1-%D0%9F%D0%BE%D0%B4%D1%81%D1%87%D0%B5%D1%82-%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B5%D0%B9-%D1%86%D0%B5%D0%BD%D1%8B)
-   + 1.1. [Список поддерживаемых параметров](#11-%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D1%85-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2)
-   + 1.2. [Формат данных в запросе](#12-%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%B5)
-   + 1.3. [Формат данных в ответе](#13-%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%B5)
-   + 1.4. [Примеры](#14-%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B)
-- 2. [Методы для работы с типами транспорта и кузова](#2-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D1%82%D0%B8%D0%BF%D0%B0%D0%BC%D0%B8-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0-%D0%B8-%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0)
-   + 2.1. [Типы транспорта](#21-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0)
-   + 2.2. [Типы кузова](#22-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0)
-- 3. [Методы для работы с марками и моделями](#3-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BC%D0%B8-%D0%B8-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8)
-   + 3.1. [Марки](#31-%D0%9C%D0%B0%D1%80%D0%BA%D0%B8)
-   + 3.2. [Модели](#32-%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8)
-- 4. [Методы для работы с областями и городами](#4-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8F%D0%BC%D0%B8-%D0%B8-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8)
-   + 4.1. [Области](#41-%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8)
-   + 4.2. [Города](#42-%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D0%B0)
-- 5. [Методы для работы с техническими характеристиками](#5-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%D0%B8-%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8)
-   + 5.1. [Коробки передач](#51-%D0%9A%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B8-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87)
-   + 5.2. [Типы привода](#52-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B4%D0%B0)
-   + 5.3. [Типы топлива](#53-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2%D0%B0)
-   + 5.4. [Опции](#54-%D0%9E%D0%BF%D1%86%D0%B8%D0%B8)
-- 6. [Цвета](#6-%D0%A6%D0%B2%D0%B5%D1%82%D0%B0)
+- 1. [Подсчет средней цены](https://github.com/ria-com/auto-ria-rest-api#1-%D0%9F%D0%BE%D0%B4%D1%81%D1%87%D0%B5%D1%82-%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B5%D0%B9-%D1%86%D0%B5%D0%BD%D1%8B)
+   + 1.1. [Список поддерживаемых параметров](https://github.com/ria-com/auto-ria-rest-api#11-%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D1%85-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2)
+   + 1.2. [Формат данных в запросе](https://github.com/ria-com/auto-ria-rest-api#12-%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%B5)
+   + 1.3. [Формат данных в ответе](https://github.com/ria-com/auto-ria-rest-api#13-%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%B5)
+   + 1.4. [Примеры](https://github.com/ria-com/auto-ria-rest-api#14-%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B)
+- 2. [Методы для работы с типами транспорта и кузова](https://github.com/ria-com/auto-ria-rest-api#2-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D1%82%D0%B8%D0%BF%D0%B0%D0%BC%D0%B8-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0-%D0%B8-%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0)
+   + 2.1. [Типы транспорта](https://github.com/ria-com/auto-ria-rest-api#21-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0)
+   + 2.2. [Типы кузова](https://github.com/ria-com/auto-ria-rest-api#22-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0)
+- 3. [Методы для работы с марками и моделями](https://github.com/ria-com/auto-ria-rest-api#3-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BC%D0%B8-%D0%B8-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8)
+   + 3.1. [Марки](https://github.com/ria-com/auto-ria-rest-api#31-%D0%9C%D0%B0%D1%80%D0%BA%D0%B8)
+   + 3.2. [Модели](https://github.com/ria-com/auto-ria-rest-api#32-%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8)
+- 4. [Методы для работы с областями и городами](https://github.com/ria-com/auto-ria-rest-api#4-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8F%D0%BC%D0%B8-%D0%B8-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0%D0%BC%D0%B8)
+   + 4.1. [Области](https://github.com/ria-com/auto-ria-rest-api#41-%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8)
+   + 4.2. [Города](https://github.com/ria-com/auto-ria-rest-api#42-%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D0%B0)
+- 5. [Методы для работы с техническими характеристиками](https://github.com/ria-com/auto-ria-rest-api#5-%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%81-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%D0%B8-%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8)
+   + 5.1. [Коробки передач](https://github.com/ria-com/auto-ria-rest-api#51-%D0%9A%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B8-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87)
+   + 5.2. [Типы привода](https://github.com/ria-com/auto-ria-rest-api#52-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B4%D0%B0)
+   + 5.3. [Типы топлива](https://github.com/ria-com/auto-ria-rest-api#53-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2%D0%B0)
+   + 5.4. [Опции](https://github.com/ria-com/auto-ria-rest-api#54-%D0%9E%D0%BF%D1%86%D0%B8%D0%B8)
+- 6. [Цвета](https://github.com/ria-com/auto-ria-rest-api#6-%D0%A6%D0%B2%D0%B5%D1%82%D0%B0)
 
 ## 1. Подсчет средней цены
 
@@ -35,23 +35,23 @@
 
 |  Название           | Параметр в строке запроса | Тип данных   |
 |:--------------------|:--------------------------|:------------:|
-|  [Тип транспорта](#21-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0)     |  category_id              |  Number      |
-|  [Тип кузова](#22-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0)         |  body_id                  |  Number      |
-|  [Марка](#31-%D0%9C%D0%B0%D1%80%D0%BA%D0%B8)              |  marka_id                 |  Number      |
-|  [Модель](#32-%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8)             |  model_id                 |  Number      |
+|  [Тип транспорта](https://github.com/ria-com/auto-ria-rest-api#21-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0)     |  category_id              |  Number      |
+|  [Тип кузова](https://github.com/ria-com/auto-ria-rest-api#22-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BA%D1%83%D0%B7%D0%BE%D0%B2%D0%B0)         |  body_id                  |  Number      |
+|  [Марка](https://github.com/ria-com/auto-ria-rest-api#31-%D0%9C%D0%B0%D1%80%D0%BA%D0%B8)              |  marka_id                 |  Number      |
+|  [Модель](https://github.com/ria-com/auto-ria-rest-api#32-%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8)             |  model_id                 |  Number      |
 |  Год выпуска        |  yers                     |  Number\[\]  |
-|  [Коробка передач](#51-%D0%9A%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B8-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87)    |  gear_id                  |  Number      |
-|  [Тип топлива](#53-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2%D0%B0)        |  fuel_id                  |  Number      |
-|  [Тип привода](#52-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B4%D0%B0)        |  drive_id                 |  Number      |
+|  [Коробка передач](https://github.com/ria-com/auto-ria-rest-api#51-%D0%9A%D0%BE%D1%80%D0%BE%D0%B1%D0%BA%D0%B8-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87)    |  gear_id                  |  Number      |
+|  [Тип топлива](https://github.com/ria-com/auto-ria-rest-api#53-%D0%A2%D0%B8%D0%BF%D1%8B-%D1%82%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2%D0%B0)        |  fuel_id                  |  Number      |
+|  [Тип привода](https://github.com/ria-com/auto-ria-rest-api#52-%D0%A2%D0%B8%D0%BF%D1%8B-%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B4%D0%B0)        |  drive_id                 |  Number      |
 |  Объем двигателя    |  engineVolume             |  Number      |
-|  [Опции](#54-%D0%9E%D0%BF%D1%86%D0%B8%D0%B8)              |  options                  |  Number      |
+|  [Опции](https://github.com/ria-com/auto-ria-rest-api#54-%D0%9E%D0%BF%D1%86%D0%B8%D0%B8)              |  options                  |  Number      |
 |  Пробег             |  raceInt                  |  Number\[\]  |
 |  Количество дверей  |  door                     |  Number      |
-|  [Область](#41-%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8)            |  state_id                 |  Number      |
-|  [Город](#42-%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D0%B0)              |  city_id                  |  Number      |
+|  [Область](https://github.com/ria-com/auto-ria-rest-api#41-%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8)            |  state_id                 |  Number      |
+|  [Город](https://github.com/ria-com/auto-ria-rest-api#42-%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D0%B0)              |  city_id                  |  Number      |
 |  Грузоподъемность   |  carrying                 |  Number      |
 |  Количество мест    |  seats                    |  Number      |
-|  [Цвет](#6-%D0%A6%D0%B2%D0%B5%D1%82%D0%B0)               |  color_id                 |  Number      |
+|  [Цвет](https://github.com/ria-com/auto-ria-rest-api#6-%D0%A6%D0%B2%D0%B5%D1%82%D0%B0)               |  color_id                 |  Number      |
 
 ### 1.2. Формат данных в запросе
 
