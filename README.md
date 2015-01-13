@@ -134,6 +134,8 @@
 ### Примеры
 
 Средняя цена по BMW X5 с пробегом от 10 до 100 тыс. км. - [http://api.auto.ria.com/average?marka_id=9&model_id=96&raceInt=10&raceInt=100](http://api.auto.ria.com/average?marka_id=9&model_id=96&raceInt=10&raceInt=100).
+
+
 Средняя цена для Honda Accord в Киеве - [http://api.auto.ria.com/average?marka_id=28&model_id=262&city_id=9](http://api.auto.ria.com/average?marka_id=28&model_id=262&city_id=9)
 
 ## Методы для работы с типами транспорта и кузова
