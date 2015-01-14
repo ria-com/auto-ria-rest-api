@@ -45,7 +45,7 @@
 |  [Тип привода](#user-content-Типы-топлива)        |  drive_id                 |  `Number`      |
 |  Объем двигателя    |  engineVolume             |  `Number`      |
 |  [Опции](#user-content-Опции)              |  options                  |  `Number[ ]`      |
-|  Пробег             |  raceInt                  |  `Number[ ]`  |
+|  Пробег             |  raceInt                  |  `Number[]`  |
 |  Количество дверей  |  door                     |  `Number`      |
 |  [Область](#user-content-Области)            |  state_id                 |  `Number`      |
 |  [Город](#user-content-Города)              |  city_id                  |  `Number`      |
