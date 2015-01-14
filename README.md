@@ -39,13 +39,13 @@
 |  [Тип кузова](#user-content-Типы-кузова)         |  body_id                  |  `Number`      |
 |  [Марка](#user-content-Марки)              |  marka_id                 |  `Number`      |
 |  [Модель](#user-content-Модели)             |  model_id                 |  `Number`      |
-|  Год выпуска        |  yers                     |  `Number\[\]`  |
+|  Год выпуска        |  yers                     |  `Number[ ]`  |
 |  [Коробка передач](#user-content-Коробки-передач)    |  gear_id                  |  `Number`      |
 |  [Тип топлива](#user-content-Типы-топлива)        |  fuel_id                  |  `Number`      |
 |  [Тип привода](#user-content-Типы-топлива)        |  drive_id                 |  `Number`      |
 |  Объем двигателя    |  engineVolume             |  `Number`      |
-|  [Опции](#user-content-Опции)              |  options                  |  `Number\[\]`      |
-|  Пробег             |  raceInt                  |  `Number\[\]`  |
+|  [Опции](#user-content-Опции)              |  options                  |  `Number[ ]`      |
+|  Пробег             |  raceInt                  |  `Number[ ]`  |
 |  Количество дверей  |  door                     |  `Number`      |
 |  [Область](#user-content-Области)            |  state_id                 |  `Number`      |
 |  [Город](#user-content-Города)              |  city_id                  |  `Number`      |
