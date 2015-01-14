@@ -35,23 +35,23 @@
 
 |  Название           | Параметр в строке запроса | Тип данных   |
 |:--------------------|:--------------------------|:------------:|
-|  [Тип транспорта](#user-content-Типы-транспорта)     |  category_id              |  Number      |
-|  [Тип кузова](#user-content-Типы-кузова)         |  body_id                  |  Number      |
-|  [Марка](#user-content-Марки)              |  marka_id                 |  Number      |
-|  [Модель](#user-content-Модели)             |  model_id                 |  Number      |
-|  Год выпуска        |  yers                     |  Number\[\]  |
-|  [Коробка передач](#user-content-Коробки-передач)    |  gear_id                  |  Number      |
-|  [Тип топлива](#user-content-Типы-топлива)        |  fuel_id                  |  Number      |
-|  [Тип привода](#user-content-Типы-топлива)        |  drive_id                 |  Number      |
-|  Объем двигателя    |  engineVolume             |  Number      |
-|  [Опции](#user-content-Опции)              |  options                  |  Number\[\]      |
-|  Пробег             |  raceInt                  |  Number\[\]  |
-|  Количество дверей  |  door                     |  Number      |
-|  [Область](#user-content-Области)            |  state_id                 |  Number      |
-|  [Город](#user-content-Города)              |  city_id                  |  Number      |
-|  Грузоподъемность   |  carrying                 |  Number      |
-|  Количество мест    |  seats                    |  Number      |
-|  [Цвет](#user-content-Цвета)               |  color_id                 |  Number      |
+|  [Тип транспорта](#user-content-Типы-транспорта)     |  category_id              |  `Number`      |
+|  [Тип кузова](#user-content-Типы-кузова)         |  body_id                  |  `Number`      |
+|  [Марка](#user-content-Марки)              |  marka_id                 |  `Number`      |
+|  [Модель](#user-content-Модели)             |  model_id                 |  `Number`      |
+|  Год выпуска        |  yers                     |  `Number\[\]`  |
+|  [Коробка передач](#user-content-Коробки-передач)    |  gear_id                  |  `Number`      |
+|  [Тип топлива](#user-content-Типы-топлива)        |  fuel_id                  |  `Number`      |
+|  [Тип привода](#user-content-Типы-топлива)        |  drive_id                 |  `Number`      |
+|  Объем двигателя    |  engineVolume             |  `Number`      |
+|  [Опции](#user-content-Опции)              |  options                  |  `Number\[\]`      |
+|  Пробег             |  raceInt                  |  `Number\[\]`  |
+|  Количество дверей  |  door                     |  `Number`      |
+|  [Область](#user-content-Области)            |  state_id                 |  `Number`      |
+|  [Город](#user-content-Города)              |  city_id                  |  `Number`      |
+|  Грузоподъемность   |  carrying                 |  `Number`      |
+|  Количество мест    |  seats                    |  `Number`      |
+|  [Цвет](#user-content-Цвета)               |  color_id                 |  `Number`      |
 
 ### Формат данных в запросе
 
