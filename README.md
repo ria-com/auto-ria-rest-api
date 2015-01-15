@@ -36,7 +36,7 @@
 
 |  Название           | Параметр в строке запроса | Тип данных   |
 |:--------------------|:--------------------------|:------------:|
-|  [Тип транспорта](#user-content-Типы-транспорта)     |  category_id              |  `Number`      |
+|  [Тип транспорта](#user-content-Типы-транспорта)  |    main_category   | `Number`    |
 |  [Тип кузова](#user-content-Типы-кузова)         |  body_id                  |  `Number`      |
 |  [Марка](#user-content-Марки)              |  marka_id                 |  `Number`      |
 |  [Модель](#user-content-Модели)             |  model_id                 |  `Number`      |
