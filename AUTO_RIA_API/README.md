@@ -105,7 +105,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 |  [Количество отображаемых id](#user-content-Количество-отображаемых-id) |countpage |`Number`|
 |  [Номер страницы](#user-content-Номер-страницы) |page |`Number`|
 
-##Пример
+## Пример
 
 Допустим Вы ищете:
 
@@ -210,7 +210,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 ```json
 "additional_params": {
     "lang_id": 2,
-    "page": "1",                           <-- Порядковый номер страницы     
+    "page": "1",                           // Порядковый номер страницы     
     "view_type_id": 0,
     "target": "search",
     "section": "auto",
@@ -241,7 +241,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
         "18412097",
         "18545537"
       ],
-      "count": 1578,                         <-- Количество id по результатам поиска
+      "count": 1578,                         // Количество id по результатам поиска
       "last_id": 0,
       "qs": {
         "fields": [
@@ -321,7 +321,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 
 
 
-# API info  Информация по id объявления
+# AUTO info  Информация по id объявления
 
 Чтобы обратиться к  RIA API info, Вам необходимо выполнить GET запрос такого вида:
 
@@ -373,7 +373,7 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
   "USD": 33500,                                                                           // Стоимость в доларах США
   "UAH": 880380,                                                                          // Стоимость в гривнах
   "EUR": 30815,                                                                           // Стоимость в евро
-  "isAutoAddedByPartner": false,                                                          //  - 
+  "isAutoAddedByPartner": false,                                                          
   "partnerId": 0, 
   "levelData": {
     "level": 10,                                                                          // Уровень топа
@@ -399,7 +399,7 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
     "mainCurrency": "USD",                                                                // Основная валюта
     "fromArchive": false,
     "categoryId": 1,                                                                      // Тип транспорта
-    "custom": 0                                                                           // -
+    "custom": 0                                                                           
   },
   "markName": "Volvo",                                                                    // Марка автомобиля
   "markId": 85,                                                                           // id марки автомобиля
@@ -456,7 +456,7 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 ]
  ```  
  
- ###Подсчёт средней цены
+ ### Подсчёт средней цены
  
  **“Подсчёт средней цены”** — 
  первый сервис, основанный на актуальных статистических данных **AUTO.RIA** (ежемесячно 10 тыс. опубликованных объявлений о продаже 7 800 марок авто, которые ежедневно собирают 8 млн. просмотров).
