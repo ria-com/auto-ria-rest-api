@@ -3,7 +3,7 @@
 > 
 > В дальнейшем мы также планируем добавить API для проектов *DOM.RIA* и *RIA.COM*. 
 > Зарегистрируйтесь на [Developers.RIA.com](https://developers.ria.com) и используй все преимущества наших API. 
-
+> Документация по новой версии API находиться [здесь](https://github.com/ria-com/auto-ria-rest-api/blob/master/AUTO_RIA_API/README.md)
 
 # Тенденции на рынке б/у авто с REST API AUTO.RIA
 **Отслеживайте, анализируйте и прогнозируйте**
