@@ -2,7 +2,6 @@
 # API Поиска
 
 
-
 Чтобы обратиться к  RIA API search, Вам необходимо выполнить GET запрос такого вида:
 
 https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
@@ -207,7 +206,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 поиска превышает это значение можно добавить параметр *page* (порядковый номер страницы) c помощью которго можно 
 просматреть все результаты поиска.
 
-```json
+```
 "additional_params": {
     "lang_id": 2,
     "page": "1",                           // Порядковый номер страницы     
@@ -319,7 +318,8 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 }
 ```
 
-
+**Так же на основе этого веб-сервиса был создан экспериментальный Telegram-бот написанный на Node.js, детальней 
+с ним можно ознакомиться [здесь](https://github.com/ria-com/api_autoria_search_bot)**
 
 # AUTO info  Информация по id объявления
 
@@ -456,7 +456,7 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 ]
  ```  
  
- ### Подсчёт средней цены
+ # Подсчёт средней цены
  
  **“Подсчёт средней цены”** — 
  первый сервис, основанный на актуальных статистических данных **AUTO.RIA** (ежемесячно 10 тыс. опубликованных объявлений о продаже 7 800 марок авто, которые ежедневно собирают 8 млн. просмотров).
