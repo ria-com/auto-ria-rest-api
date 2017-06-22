@@ -1,9 +1,10 @@
-> Уважаемые пользователи! В связи с тем, что мы запускаем новую версию API с более широкими возможностями как AUTO Search и AUTO Info, 
-> данная страница с API 1.0 будет поддерживаться только до конца 2017 года. 
+> Мы запускаем новую версию API с более широкими возможностями на [Developers.RIA.com](https://developers.ria.com).
+> Вам будут доступны все API AUTO.RIA, AUTO Search и AUTO Info, а также в дальнейшем API DOM.RIA и RIA.com. Документация по новой версии [здесь](https://github.com/ria-com/auto-ria-rest-api/blob/master/AUTO_RIA_API/README.md) 
 > 
-> В дальнейшем мы также планируем добавить API для проектов *DOM.RIA* и *RIA.COM*. 
-> Зарегистрируйтесь на [Developers.RIA.com](https://developers.ria.com) и используй все преимущества наших API. 
-> Документация по новой версии API находиться [здесь](https://github.com/ria-com/auto-ria-rest-api/blob/master/AUTO_RIA_API/README.md)
+> Страница API 1.0 на Github будет поддерживаться до декабря 2017.
+>
+> Регистрируйтесь на [Developers.RIA.com](https://developers.ria.com) и используй все преимущества наших API. 
+
 
 # Тенденции на рынке б/у авто с REST API AUTO.RIA
 **Отслеживайте, анализируйте и прогнозируйте**
