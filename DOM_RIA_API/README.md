@@ -745,3 +745,55 @@
       }
     ]
   ]
+  
+  
+  ## Ошибки
+  
+  |  Код ошибки           | HTTP Status Code| Описание   |
+  |:--------------------|:--------------------------|:------------:|
+  |  API_KEY_MISSING |    403   | Ключ API не был указан. Подробнее об использовании ключа API см. В разделе о передаче API-интерфейса в API.    |
+  |  API_KEY_INVALID |    403   | Был указан недопустимый ключ API. Убедитесь, что ключ API прошел успешно, или зарегистрируйтесь для ключа API.    |
+  |  API_KEY_DISABLED |    403   | Ключ API был отключен администратором. Пожалуйста свяжитесь с нами для помощи.    |
+  |  API_KEY_UNAUTHORIZED |    403   | Предоставленный ключ API не авторизован для доступа к данной службе. Пожалуйста свяжитесь с нами для помощи.    |
+  |  API_KEY_UNVERIFIED |    403   | Ключ API не был подтвержден. Проверьте свой адрес электронной почты, чтобы подтвердить ключ API. Пожалуйста свяжитесь с нами для помощи.    |
+  |  HTTPS_REQUIRED |    400  | Запросы к этому API должны быть сделаны по протоколу HTTPS. Убедитесь, что используемый URL находится поверх HTTPS.    |
+  |  OVER_RATE_LIMIT |    429   | Ключ API превысил лимит запростов. Для получения дополнительной информации свяжитесь с нами.    |
+  |  NOT_FOUND |    404   | Не удалось найти API по данному URL-адресу. Проверьте свой URL.    |
+  
+  
+  JSON Пример
+  ```javascript
+  {
+    "error": {
+      "code": "API_KEY_MISSING",
+      "message": "No api_key was supplied. Get one at https://developers.ria.com"
+    }
+  }
+  ```
+  
+  XML 
+  
+  ```xml
+  <response>
+    <error>
+      <code>API_KEY_MISSING</code>
+      <message>No api_key was supplied. Get one at https://developers.ria.com</message>
+    </error>
+  </response>
+  ```
+  
+  CSV 
+  ```
+  Error Code,Error Message
+  API_KEY_MISSING,No api_key was supplied. Get one at https://developers.ria.com
+  ```
+  HTML 
+  
+  ```html
+  <html>
+    <body>
+      <h1>API_KEY_MISSING</h1>
+      <p>No api_key was supplied. Get one at https://developers.ria.com</p>
+    </body>
+  </html>
+  ```
