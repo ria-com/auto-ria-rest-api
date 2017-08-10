@@ -160,9 +160,8 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 
 В итоге мы получаем запрос такого [вида]:
 
-[https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&bodystyle[0]=3&....][1] 
+[https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&bodystyle[0]=3&....](https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&bodystyle[0]=3&bodystyle[4]=2&marka_id[0]=79&model_id[0]=0&s_yers[0]=2010&po_yers[0]=2017&marka_id[1]=84&model_id[1]=0&s_yers[1]=2012&po_yers[1]=2016&brandOrigin[0]=276&brandOrigin[1]=392&price_ot=1000&price_do=60000&currency=1&auctionPossible=1&with_real_exchange=1&with_exchange=1&exchange_filter[marka_id]=0&exchange_filter[model_id]=0&state[0]=1&city[0]=0&state[1]=2&city[1]=0&state[2]=10&city[2]=0&abroad=2&custom=1&auto_options[477]=477&type[0]=1&type[1]=2&type[3]=4&type[7]=8&gearbox[0]=1&gearbox[1]=2&gearbox[2]=3&engineVolumeFrom=1.4&engineVolumeTo=3.2&powerFrom=90&powerTo=250&power_name=1&countpage=50&with_photo=1)
 
-[1]:https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&category_id=1&bodystyle[0]=3&bodystyle[4]=2&marka_id[0]=79&model_id[0]=0&s_yers[0]=2010&po_yers[0]=2017&marka_id[1]=84&model_id[1]=0&s_yers[1]=2012&po_yers[1]=2016&brandOrigin[0]=276&brandOrigin[1]=392&price_ot=1000&price_do=60000&currency=1&auctionPossible=1&with_real_exchange=1&with_exchange=1&exchange_filter[marka_id]=0&exchange_filter[model_id]=0&state[0]=1&city[0]=0&state[1]=2&city[1]=0&state[2]=10&city[2]=0&abroad=2&custom=1&auto_options[477]=477&type[0]=1&type[1]=2&type[3]=4&type[7]=8&gearbox[0]=1&gearbox[1]=2&gearbox[2]=3&engineVolumeFrom=1.4&engineVolumeTo=3.2&powerFrom=90&powerTo=250&power_name=1&countpage=50&with_photo=1                                
 
 В случае успешного выполнения запроса по указанным параметрам результат будет со статусом **200 OK**.
 
@@ -269,15 +268,13 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 
 Допустим Вам нужен список автомобилей по параметрам указаных ниже:
 
-[https://auto.ria.com/search/?categories.main.id=1&brand.id[0]...][2]
+[https://auto.ria.com/search/?categories.main.id=1&brand.id[0]...](https://auto.ria.com/search/?categories.main.id=1&brand.id[0]=9&year[0].gte=2011&year[0].lte=2016&custom.not=1&fuel.id[5]=6&gearbox.id[1]=2&gearbox.id[2]=3&size=10"&countpage=100)
 
-[2]:https://auto.ria.com/search/?categories.main.id=1&brand.id[0]=9&year[0].gte=2011&year[0].lte=2016&custom.not=1&fuel.id[5]=6&gearbox.id[1]=2&gearbox.id[2]=3&size=10"&countpage=100
 
 Используем сервис конфигурации
 
-[https://developers.ria.com/new_to_old?api_key=YOUR_API_KEY&categories.main.id=1&brand.id...][3]
+[https://developers.ria.com/new_to_old?api_key=YOUR_API_KEY&categories.main.id=1&brand.id...](https://developers.ria.com/new_to_old?api_key=YOUR_API_KEY&categories.main.id=1&brand.id[0]=9&year[0].gte=2011&year[0].lte=2016&custom.not=1&fuel.id[5]=6&gearbox.id[1]=2&gearbox.id[2]=3&size=10"&countpage=10)
 
-[3]:https://developers.ria.com/new_to_old?api_key=YOUR_API_KEY&categories.main.id=1&brand.id[0]=9&year[0].gte=2011&year[0].lte=2016&custom.not=1&fuel.id[5]=6&gearbox.id[1]=2&gearbox.id[2]=3&size=10"&countpage=10
 
 В результате мы получим параметры которые сможем применять в API Search:
 ```json
@@ -305,9 +302,8 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 
 Используем сервис конфигурации
 
-[https://developers.ria.com/old_to_new?api_key=YOUR_API_KEY&category_id=1&marka_id[0]=9...][4]
+[https://developers.ria.com/old_to_new?api_key=YOUR_API_KEY&category_id=1&marka_id[0]=9...](https://developers.ria.com/old_to_new?api_key=YOUR_API_KEY&category_id=1&marka_id[0]=9&model_id[0]=0&s_yers[0]=2011&po_yers[0]=2016&custom=1&type[5]=6&gearbox[1]=2&gearbox[2]=3&countpage=100)
 
-[4]:https://developers.ria.com/old_to_new?api_key=YOUR_API_KEY&category_id=1&marka_id[0]=9&model_id[0]=0&s_yers[0]=2011&po_yers[0]=2016&custom=1&type[5]=6&gearbox[1]=2&gearbox[2]=3&countpage=100
 
 В результате мы получим новые параметры которые можем использовать на сайте AUTO.RIA
 ```json
@@ -477,19 +473,12 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
  * узнавать актуальные средние цены автомобилей разных марок и моделей; 
  * следить за изменениями цен в кратко- и долгосрочном периодах;
  * анализировать и прогнозировать изменения цен и спроса на автомобили;
- * размещать полученную информацию на вашем сайте.`*`
+ * размещать полученную информацию на вашем сайте.
  
- ```
- * Наличие ссылки на сайт AUTO.RIA с гиперссылкой на страницу https://AUTO.RIA.com, 
- не закрытой для индексации поисковыми системами, является единственным 
- обязательным требованием для использования сервиса.
- ```
+ 
  
  Ознакомьтесь с технической документацией, чтобы получить доступ и экспортировать необходимую информацию в программу вашей компании.
  
- Благодарим за содействие в запуске сервиса “Подсчёт средней цены” ТОВ «Богдан–Авто Холдинг».
- 
- Ваш AUTO.RIA, автосайт № 1 в Украине.
  
 ### Формат данных в запросе
 
@@ -1205,8 +1194,7 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 ### Количество отображаемых id
 Данный параметр может принимать следующие значения от `1` до `100
 
-### Номер страницы
-Данный параметр может принимать следующие значения от `1` до `100
+
 
 
 ## Ошибки
