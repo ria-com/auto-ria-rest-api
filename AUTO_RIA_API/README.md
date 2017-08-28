@@ -83,6 +83,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 |  Грузоподъемность   |  carrying                 |  `Number`      |
 |  Количество мест    |  seats                    |  `Number`      |
 |  [Цвет](#user-content-Цвета)               |  color_id                 |  `Number`      |
+|  [Страна производитель](#user-content-Страна-производитель)               |  brandOrigin                 |  `Number`      |
 |  [Растаможка](#user-content-Растаможка)         |  custom               | `Number`         |
 |  [После ДТП](#user-content-После-ДТП) | damage | `Number`|
 |  [Взято в кредит](#user-content-Взято-в-кредит) | under_credit | `Number` |
@@ -942,6 +943,35 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 ]
 ```
 
+## Страна производитель
+
+Получить список стран производителей можно, если отправить GET запрос по адресу https://developers.ria.com/auto/countries?api_key=YOUR_API_KEY. Результат будет седующим:
+```javascript
+[
+
+  {
+    "name": "Австрия", "value": 40 },
+  {
+    "name": "Англия", "value": 826 },
+  {
+    "name": "Аргентина", "value": 32 },
+  {
+    "name": "Беларусь", "value": 112 },
+  {
+    "name": "Бельгия", "value": 56 },
+  {
+    "name": "Болгария", "value": 100 },
+  {
+    "name": "Бразилия", "value": 76 },
+  {
+    "name": "Венгрия", "value": 348 },
+  {
+    "name": "Германия", "value": 276},
+  {
+    "name": "Дания", "value": 208 }
+                ............
+     ]
+````
 ### Растаможка 
 
 Параметр растаможки может принимать только два значения: `1` - нерастаможенный и `0` - растаможенный.
@@ -1041,6 +1071,8 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 `2` - компания
 
 ### Пригнан из
+
+Для данного параметра можно использовать элементы полученный с помощью сервиса **Страна производитель**
 
 `matched_country=` - Пригнан из
 
