@@ -121,7 +121,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 
 Допустим Вы ищете:
 
-* Легковые машины                                            ``(сategory_id=1)``
+* Легковые машины                                            ``(category_id=1)``
 * Кузов *Седан*,*Универсал*                                 `(bodystyle[0]=3&bodystyle[4]=2)`
 * Япония                                                   `(brandOrigin[0]=276)`
     * Toyota                                               ` (marka_id[0]=79)`
