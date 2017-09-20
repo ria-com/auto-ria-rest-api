@@ -1230,6 +1230,903 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 
 
 
+## Работа с обьявлениями
+
+Зарегистрируйтесь или авторизируйтесь на [myAPI.RIA.com](http://myapi.ria.com/), чтобы использовать персонализированные API. По умолчанию все
+права на доступ к сервисам не активны, что бы активировать нужный Вам сервис перейдите во вкладку ["Мої Дозволи"](http://myapi.ria.com/my/credentials)
+
+Полное описание сервиса "Работа с обьявления" описаний с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+#### Структура параметров
+
+
+**Параметры которые должны обязательно присутствовать в запросе**
+
+|  Имя поля	           | Тип        | Описание   | Пример       |
+|:--------------------|:-----------|:------------|:----|
+|   * year             |   number    | Год выпуска вашего авто |    2016     |
+|   * price           |   object   | Цена, за которою вы желаете продать ваше авто  |                      |
+|    value            |   number   | Значение           |     80000                 |
+|    currency         |   object   | Валюта в которой вы продаете ваш автомобиль |                      |
+|    id               |   number   | ID валюты в которой вы продаете ваш автомобиль |      1                |
+|                     |            |                     |                      |
+|    *categories      |   object   |  Тип транспорта |                      |
+|    main             |   object   |   |                      |
+|    id               |   number   |  ID типа транспорта |       1               |
+|                     |            |                     |                      |
+|   * brand           |   object   |  Марка автомобиля    |                      |
+|    id               |   number   |  ID марки автомобиля    |      5                |
+|                     |            |                     |                      |
+|   * model           |   object   |   Модель автомобиля         |                      |
+|    id               |   number   |  ID модели автомобиля          |      963                |
+|                     |            |                     |                      |
+|    modification     |   string   | Название модификации вашего автомобиля     |      V12 AMG B-turbo               |
+|                     |            |                     |                      |
+|    *body            |   object   |  Тип кузова     |                      |
+|    id               |   number   |  ID типа кузова     |        6             |
+|                     |            |                     |                      |
+|    *mileage         |   number   |    Пробег в тыс.км. |       32               |
+|                     |            |                     |                      |
+|   * region          |   object   | Область в которой вы продаете автомобиль|                          |
+|    id               |   number   | ID области в которой вы продаете автомобиль|           10               |
+|                     |            |                     |                      |
+|   * city            |   object   | Город в котором вы продаете автомобиль |                          |
+|    id               |   number   | ID города в котором вы продаете автомобиль |           10               |
+
+**Дополнительные параметры**
+
+|  Имя поля	           | Тип              | Описание    |Пример       |
+|:--------------------|:------------------|:------------|:----|
+|    damage           |   boolean   | Ваше авто после ДТП  |       false    |
+|    custom           |   boolean   | Авто растаможено     |       false    |
+|    VIN              |   string   | ВИН код вашего автомобиля   |       JKBVNCB164A6XXXX               |
+|    gearbox          |   object   | Коробка передач          |                      |
+|    id               |   number   | ID коробки передач          |          1            |
+|                     |            |                             |                      |
+|    drive            |   object   | Тип привода             |                      |
+|    id               |   number   | ID типа привода             |          2            |
+|                     |            |                             |                      |
+|    fuel             |   object   | Тип топлива                 |                      |
+|    id               |   number   | ID типа топлива, которое подходит вашему автомобилю |         2             |
+|                     |            |                             |                      |
+|    consumption      |   object   | Расход топлива    |                      |
+|    route            |   number   | Расход топлива по трасе     |        6              |
+|    city             |   number   | Расход топлива по городу    |         10             |
+|    combine          |   number   | Расход топлива в смешеном режиме |       8               |
+|                     |            |           |                      |
+|    engine           |   object   | Обьем двигателя         |                      |
+|    volume           |   object   |                             |                      |
+|    liters           |   number   | Обьем двигателя в литрах         |        3.5             |
+|                     |            |                                  |                      |
+|    power            |   object   | Мощность вашего авто         |                      |
+|    hp               |   number   | Мощность вашего авто в лошадиных силах |       585               |
+|    kW               |   number   | Мощность вашего авто в киловатах        |        430              |
+|                     |            |                               |                      |
+|    color            |   object   | Цвет                          |                      |
+|    id               |   number   | ID цвета вашего автомобиля    |      10                |
+|    metallic         |   boolean  | Цвет металик                  |      true                |
+|                     |            |                               |                      |
+|    post             |   object   | Добавить торг                              |                      |
+|    auctions         |   boolean  | Разрешение добавлять торги к вашему обьявлению       |      true                |
+|    comments         |   object   | Комментарий                             |                      |
+|    allowed          |   boolean  | Разрешения комментировать ваше обьявление            |         true             |
+|    check            |   boolean  | Нужно ли ваше подтверждение при добавлении комментария |        false              |
+|                     |            |                               |                      |
+|    exchanges        |   object   | Обмен                               |                      |
+|    payment          |   object   | Доплата                             |                      |
+|    id               |   number   | Варианты доплаты при добалении обмена к вашему обьявлению |        2              |
+|                     |            |                               |                      |
+|    type             |   object   | Тип обмена                              |                      |
+|    id               |   number   | ID типа обмена (на автомобиль,на недвижемость и т.д.)    |          1            |
+|                     |            |                               |                      |
+|    video            |   object   | Видео                             |                      |
+|    key              |   string   | Ключ к видео на ютубе         |   lLEiT9PeHSg        |
+|                     |            |                               |                      |
+|    description      |   object   | Описание                             |                      |
+|    ru               |   string   | Описание на русском языке     |   "Авто в идеальном состоянии, вложений не требует"                   |
+|    uk               |   string   | Описание на украинском языке  |   "Авто в ідеальному стані, вкладень не потребує"                   |
+|                     |            |                               |                      |
+|    doors            |   number   | Количество дверей             |         2             |
+|                     |            |                               |                      |
+|    seats            |   number   | Количество сидячих мест       |          2            |
+|                     |            |                               |                      |
+|    country          |   object   |Странна с которой был пригнан автомобиль |                      |
+|    import           |   object   |                               |                      |
+|    id               |   number   | ID страны                               |          0            |
+|                     |            |                               |                      |
+|    spareParts       |   boolean  | Авто на запчасти          |         false             |
+
+
+### Добавление обьявления
+
+Чтобы добавить  объявления, Вам необходимо выполнить POST запрос такого вида:
+
+`curl -X POST "https://developers.ria.com/auto/used/autos/?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d "{ \  \ }"`
+
+, где *user_id* - Ваш ID в системе RIA.com,  *`-d "{ \  \  }`* - здесь Вы указываете массив параметров которые хотите добавить,  *api_key* - Ваш ключ.
+
+Объявления по умолчанию добавляются в черновики, чтобы опубликовать их, Вам нужно зайти в свой личный кабинет на AUTO.RIA
+
+Также стоит заметить, что существуют параметры обязательны для заполнения. Детально с параметрами можно ознакомиться [здесь](#user-content-Структура-параметров).
+
+**Пример запроса**
+
+
+`curl -X POST "https://developers.ria.com/auto/used/autos/?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d "{ \"damage\": false, \"custom\": false, \"year\": 2016, \"price\": { \"value\": 80000, \"currency\": { \"id\": 1 } }, \"categories\": { \"main\": { \"id\": 1 } }, \"brand\": { \"id\": 5 }, \"model\": { \"id\": 963 }, \"modification\": \"V12 AMG B-turbo\", \"body\": { \"id\": 6 }, \"mileage\": 32, \"region\": { \"id\": 10 }, \"city\": { \"id\": 10 }, \"VIN\": \"JKBVNCB164A662141\", \"gearbox\": { \"id\": 1 }, \"drive\": { \"id\": 2 }, \"fuel\": { \"id\": 2, \"consumption\": { \"city\": 10, \"route\": 6, \"combine\": 8 } }, \"engine\": { \"volume\": { \"liters\": 3.5 } }, \"power\": { \"hp\": 585, \"kW\": 430 }, \"color\": { \"id\": 10, \"metallic\": true }, \"post\": { \"auctions\": true, \"comments\": { \"allowed\": true, \"check\": false }, \"exchanges\": { \"payment\": { \"id\": 2 }, \"type\": { \"id\": 1 } } }, \"video\": { \"key\": \"lLEiT9PeHSg\" }, \"description\": { \"ru\": \"Авто в идеальном состоянии, вложений не требует\", \"uk\": \"Авто в ідеальному стані, вкладень не потребує\" }, \"doors\": 2, \"seats\": 2, \"country\": { \"import\": { \"id\": 0 } }, \"spareParts\": false}"`
+
+Развернутый пример
+
+````json
+curl -X POST "https://developers.ria.com/auto/used/autos/?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d
+"{
+   \"damage\":false,
+   \"custom\":false,
+   \"year\":2016,
+   \"price\":{
+      \"value\":80000,
+      \"currency\":{
+         \"id\":1
+      }
+   },
+   \"categories\":{
+      \"main\":{
+         \"id\":1
+      }
+   },
+   \"brand\":{
+      \"id\":5
+   },
+   \"model\":{
+      \"id\":963
+   },
+   \"modification\":\"V12 AMG B-turbo\",
+   \"body\":{
+      \"id\":6
+   },
+   \"mileage\":32,
+   \"region\":{
+      \"id\":10
+   },
+   \"city\":{
+      \"id\":10
+   },
+   \"VIN\":\"JKBVNCB164A662141\",
+   \"gearbox\":{
+      \"id\":1
+   },
+   \"drive\":{
+      \"id\":2
+   },
+   \"fuel\":{
+      \"id\":2,
+      \"consumption\":{
+         \"city\":10,
+         \"route\":6,
+         \"combine\":8
+      }
+   },
+   \"engine\":{
+      \"volume\":{
+         \"liters\":3.5
+      }
+   },
+   \"power\":{
+      \"hp\":585,
+      \"kW\":430
+   },
+   \"color\":{
+      \"id\":10,
+      \"metallic\":true
+   },
+   \"post\":{
+      \"auctions\":true,
+      \"comments\":{
+         \"allowed\":true,
+         \"check\":false
+      },
+      \"exchanges\":{
+         \"payment\":{
+            \"id\":2
+         },
+         \"type\":{
+            \"id\":1
+         }
+      }
+   },
+   \"video\":{
+      \"key\":\"lLEiT9PeHSg\"
+   },
+   \"description\":{
+      \"ru\":\"Авто в идеальном состоянии,
+      вложений не требует\",
+      \"uk\":\"Авто в ідеальному стані,
+      вкладень не потребує\"
+   },
+   \"doors\":2,
+   \"seats\":2,
+   \"country\":{
+      \"import\":{
+         \"id\":0
+      }
+   },
+   \"spareParts\":false
+} "
+````
+
+**Пример успешного ответа:**
+
+````json
+{
+   "damage":false,
+   "custom":false,
+   "year":2016,
+   "price":{
+      "value":80000,
+      "currency":{
+         "id":1
+      }
+   },
+   "categories":{
+      "main":{
+         "id":1
+      },
+      "all":[
+         {
+            "id":1
+         }
+      ]
+   },
+   "brand":{
+      "id":5
+   },
+   "model":{
+      "id":963
+   },
+   "modification":"V12 AMG B-turbo",
+   "body":{
+      "id":6
+   },
+   "mileage":32,
+   "region":{
+      "id":10
+   },
+   "city":{
+      "id":10
+   },
+   "VIN":"JKBVNCB164A66XXXX",
+   "gearbox":{
+      "id":1
+   },
+   "drive":{
+      "id":2
+   },
+   "fuel":{
+      "id":2,
+      "consumption":{
+         "city":10,
+         "route":6,
+         "combine":8
+      }
+   },
+   "engine":{
+      "volume":{
+         "liters":3.5
+      }
+   },
+   "power":{
+      "hp":585,
+      "kW":430
+   },
+   "color":{
+      "id":10,
+      "metallic":true
+   },
+   "post":{
+      "auctions":true,
+      "comments":{
+         "allowed":true,
+         "check":false
+      },
+      "exchanges":{
+         "payment":{
+            "id":2
+         },
+         "type":{
+            "id":1
+         }
+      }
+   },
+   "video":{
+      "key":"lLEiT9PeHSg"
+   },
+   "description":{
+      "ru":"Авто в идеальном состоянии, вложений не требует",
+      "uk":"Авто в ідеальному стані, вкладень не потребує"
+   },
+   "doors":2,
+   "seats":2,
+   "country":{
+      "import":{
+         "id":0
+      }
+   },
+   "spareParts":false,
+   "user":{
+      "id":7069830
+   },
+   "ip":"80.91.174.90",
+   "dates":{
+      "created":"2017-09-18T12:07:43.840Z"
+   },
+   "status":{
+      "id":13
+   },
+   "_id":20476120
+}
+````
+
+### Список объявлений пользователя
+
+Чтобы получить список объявлений, Вам необходимо выполнить GET запрос такого вида:
+
+https://developers.ria.com/auto/used/autos/ids?user_id=Ваш ID в системе RIA.com&api_key=YOUR_API_KEY
+
+или `curl -X GET "https://developers.ria.com/auto/used/autos/ids?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X GET "https://developers.ria.com/auto/used/autos/ids?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+**Пример успешного ответа:**
+
+```json
+{
+  "active": {
+    "moderated": [
+
+    ],
+    "notModerated": [
+
+    ]
+  },
+  "draft": [
+
+  ],
+  "awaitingPayment": [
+
+  ],
+  "archive": [
+    20438832,
+    20445742
+  ]
+}
+```
+Расшифровка параметров:
+ - *active* - Активные объявления
+ - *moderated* - Объявления находятся на модерации
+ - *notModerated* - Объявления не от модерировано
+ - *draft* - Объявления находятся в черновиках
+ - *awaitingPayment* - Объявления ожидают оплаты
+ - *archive* - Объявления в архиве
+
+Полное описание сервиса "Список объявлений пользователя" описаний с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+###  Получение основной информации объявления
+
+Чтобы получить основную информацию об обьявлении, Вам необходимо выполнить GET запрос такого вида:
+
+https://developers.ria.com/auto/used/autos/advertisementId?user_id=Ваш ID&api_key=YOUR_API_KEY
+
+или `curl -X GET "https://developers.ria.com/auto/used/autos/advertisementId?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X GET "https://developers.ria.com/auto/used/autos/20445742?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+**Пример успешного ответа:**
+
+```json
+{
+  "_id": 20445742,
+  "fuel": {
+    "consumption": {
+      "city": 10,
+      "route": 6,
+      "combine": 8
+    },
+    "id": 2
+  },
+  "brand": {
+    "id": 5
+  },
+  "model": {
+    "id": 963
+  },
+  "modification": "V12 AMG B-turbo",
+  "body": {
+    "id": 6
+  },
+  "doors": 2,
+  "gearbox": {
+    "id": 1
+  },
+  "color": {
+    "id": 10,
+    "metallic": true
+  },
+  "year": 2016,
+  "mileage": 32,
+  "price": {
+    "value": 80000,
+    "currency": {
+      "id": 1
+    }
+  },
+  "post": {
+    "auctions": true,
+    "exchanges": {
+      "type": {
+        "id": 1
+      },
+      "payment": {
+        "id": 2
+      }
+    },
+    "comments": {
+      "allowed": true,
+      "check": false
+    }
+  },
+  "spareParts": false,
+  "user": {
+    "id": 7069830,
+    "type": "private"
+  },
+  "dates": {
+    "created": "2017-09-13T06:26:35.000Z",
+    "updated": "0000-00-00 00:00:00",
+    "expired": "0000-00-00 00:00:00",
+    "sold": "0000-00-00 00:00:00"
+  },
+  "status": {
+    "id": 1
+  },
+  "partner": {
+    "id": 1
+  },
+  "ip": 8091,
+  "description": {
+    "ru": "Авто в идеальном состоянии, вложений не требует",
+    "uk": "Авто в ідеальному стані, вкладень не потребує"
+  },
+  "region": {
+    "id": 10
+  },
+  "city": {
+    "id": 10
+  },
+  "moderated": true,
+  "damage": false,
+  "custom": false,
+  "photos": {
+      "main": {
+        "id": 196054982
+         }
+       },
+  "credit": false,
+  "video": {
+    "key": "lLEiT9PeHSg"
+  },
+  "categories": {
+    "main": {
+      "id": 1
+    },
+    "all": [
+      {
+        "id": 1
+      }
+    ]
+  },
+  "drive": {
+    "id": 2
+  },
+  "VIN": "JKBVNCB164A66XXXX",
+  "confiscated": false,
+  "verified": {
+    "serviceStation": false
+  },
+  "seats": 2,
+  "power": {
+    "hp": 585,
+    "kW": 430.56
+  },
+  "engine": {
+    "volume": {
+      "cc": 3500,
+      "liters": 3.5
+    }
+  }
+}
+```
+ Полное описание сервиса "Получение основной информации объявления" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+### Получения списка фотографий объявления
+
+Для получения списка фотографий объявления, Вам необходимо выполнить GET запрос такого вида:
+
+'https://developers.ria.com/auto/fotos/advertisementId?api_key=YOUR_API_KEY'
+
+, где  *advertisementId* - ID нужного Вам объявления, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+'https://developers.ria.com/auto/fotos/19860101?api_key=YOUR_API_KEY'
+
+**Пример успешного ответа:**
+
+````json
+{
+  "status": 1,
+  "data": {
+    "19860101": {
+      "187203123": {
+        "photo_id": 187203123,
+        "auto_id": 19860101,
+        "status": 0,
+        "checked": 1,
+        "standard": 0,
+        "date_add": "2017-06-04 13:27:33",
+        "description": null,
+        "url": "auto/photo/18720/1872031/187203123/187203123.jpg",
+        "formats": [
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203123/187203123f.jpg",
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203123/187203123fx.jpg"
+        ]
+      },
+      "187203127": {
+        "photo_id": 187203127,
+        "auto_id": 19860101,
+        "status": 0,
+        "checked": 1,
+        "standard": 0,
+        "date_add": "2017-06-04 13:27:35",
+        "description": null,
+        "url": "auto/photo/18720/1872031/187203127/187203127.jpg",
+        "formats": [
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203127/187203127f.jpg",
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203127/187203127fx.jpg"
+        ]
+      },
+      "187203129": {
+        "photo_id": 187203129,
+        "auto_id": 19860101,
+        "status": 0,
+        "checked": 1,
+        "standard": 0,
+        "date_add": "2017-06-04 13:27:37",
+        "description": null,
+        "url": "auto/photo/18720/1872031/187203129/187203129.jpg",
+        "formats": [
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203129/187203129f.jpg",
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203129/187203129fx.jpg"
+        ]
+      },
+      "187203135": {
+        "photo_id": 187203135,
+        "auto_id": 19860101,
+        "status": 0,
+        "checked": 1,
+        "standard": 0,
+        "date_add": "2017-06-04 13:27:39",
+        "description": null,
+        "url": "auto/photo/18720/1872031/187203135/187203135.jpg",
+        "formats": [
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203135/187203135f.jpg",
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203135/187203135fx.jpg"
+        ]
+      },
+      "187203138": {
+        "photo_id": 187203138,
+        "auto_id": 19860101,
+        "status": 0,
+        "checked": 1,
+        "standard": 0,
+        "date_add": "2017-06-04 13:27:40",
+        "description": null,
+        "url": "auto/photo/18720/1872031/187203138/187203138.jpg",
+        "formats": [
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203138/187203138f.jpg",
+          "https://cdn.riastatic.com/photos/auto/photo/18720/1872031/187203138/187203138fx.jpg"
+        ]
+      }
+    }
+  }
+}
+````
+
+### Изменение основной информации объявлений
+
+Для изменения основной информации объявления, Вам необходимо отправить **PUT** запрос такого вида:
+
+`curl -X PUT "https://developers.ria.com/auto/used/autos/advertisementId?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json"  -d "{ \  \  }`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *`-d "{ \  \  }`* - здесь Вы указываете массив параметров которые хотите поменять,  *api_key* - Ваш ключ.
+
+ Детально с параметрами и структурой можно ознакомиться [здесь](#user-content-Структура-параметров)
+
+**Пример запроса**
+
+Допустим Вам нужно изменить цену и валюту в которой вы продаете ваш автомобиль. Данный запрос будет иметь следующий вид:
+
+`curl -X PUT "https://developers.ria.com/auto/used/autos/20438832?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d "{ \"price\": { \"value\":10000, \"currency\": { \"id\":1 } }}"`
+
+или изменить главное фото объявления, данный запрос будет иметь следующий вид:
+
+`curl -X PUT "https://developers.ria.com/auto/used/autos/20438832?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d "{  \"photos\": { \"main\": { \"id\": 16652206 } }}"`
+
+Объект *price* включает в себя параметры *value* - значение, *currency* - ID валюты в которой вы продаете ваш автомобиль, в нашем случаи это доллар.
+
+**Пример успешного ответа:**
+```json
+{"message":"Ok",
+
+"errors":[],
+
+"success":true}
+```
+
+ Полное описание сервиса "Изменение основной информации объявлений" описаний с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+**Важно**
+
+Основные параметры транспортного средства доступны к редактированию на протяжении часа, после добавления на сайт:
+
+ - “Регион”
+
+ - “Тип транспорта”, “Марка”, “Модель”, “Версия”, “Год выпуска”
+
+ - “VIN-номер”, “Коробка передач”, “Привод”, “Количество дверей”, “Цвет”, “Топливо”
+
+Остальные параметры - “Цена”, “Пробег”, “Фото” автомобиля, подробное описание — можете изменять и корректировать в любое время.
+
+Если же по истечении 60 мин.  отправить запрос на изменение одного из выше перечисленых параметров, Вы получите ошибку.
+
+**Пример ошибки**
+
+```json
+{
+   "message":"StatusCodeError: 400 - {\"message\":\"Validation failed\",\"errors\":[{\"message\":\"You can edit categories.main.id for 60 minutes\",\"code\":7},{\"message\":\"You can edit brand.id for 60 minutes\",\"code\":7},{\"message\":\"You can edit model.id for 60 minutes\",\"code\":7}]}"
+}
+```
+
+
+### Удаление объявления
+
+Для удаления объявления, Вам необходимо отправить **DELETE** запрос такого вида:
+
+`curl -X DELETE "https://developers.ria.com/auto/used/autos/advertisementId?user_id=Ваш ID&reason_id=id причины удаления&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *reason_id* - причина удаления, *api_key* - Ваш ключ.
+
+**reason_id** состоит из 4 категорий:
+- **reason_id**=**4** - Авто продано с помощью AUTO.RIA.com
+- **reason_id**=**5** - Авто продано в другом месте
+- **reason_id**=**6** - Я хочу разместить объявление заново
+- **reason_id**=**7** - Я передумал продавать автомобиль
+
+**Пример запроса**
+
+`curl -X DELETE "https://developers.ria.com/auto/used/autos/20460133?user_id=7069830&reason_id=7&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+ Полное описание сервиса "Удаление объявления" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+### Статистика объявления
+
+Чтобы получить статистику об обьявлении, Вам необходимо выполнить GET запрос такого вида:
+
+https://developers.ria.com/auto/used/autos/advertisementId/statistic?user_id=Ваш ID&api_key=YOUR_API_KEY
+
+или `curl -X GET "https://developers.ria.com/auto/used/autos/advertisementId/statistic?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X GET "https://developers.ria.com/auto/used/autos/20268839/statistic?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json""`
+
+**Пример успешного ответа:**
+
+```json
+{
+  "views": 329,
+  "clicks": 24
+}
+```
+Расшифровка параметров:
+
+- *views* - Количество просмотров объявления
+- *clicks* - Количество открытий номера телефона
+
+ Полное описание сервиса "Статистика объявления" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+### Получение информации об опциях объявления
+
+Чтобы получить информации об опциях обьявления, Вам необходимо выполнить GET запрос такого вида:
+
+https://developers.ria.com/auto/used/autos/advertisementId/options?user_id=Ваш ID&api_key=YOUR_API_KEY
+
+или `curl -X GET "https://developers.ria.com/auto/used/autos/advertisementId/options?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+curl -X GET "https://developers.ria.com/auto/used/autos/20438832/options?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"
+
+**Пример успешного ответа:**
+```json
+[
+  {
+    "id": 125
+  },
+  {
+    "id": 137
+  },
+  {
+    "id": 188
+  },
+  {
+    "id": 189
+  },
+  {
+    "id": 190
+  },
+  {
+    "id": 191
+  },
+  {
+    "id": 211
+  },
+  {
+    "id": 217
+  },
+  {
+    "id": 225
+  },
+  {
+    "id": 303
+  },
+  {
+    "id": 354
+  },
+  {
+    "id": 355
+  },
+  {
+    "id": 437
+  },
+  {
+    "id": 463
+  },
+  {
+    "id": 481
+  },
+  {
+    "id": 525
+  }
+]
+```
+
+Для расшифровки полученых параметров можно использовать сервис [Опции](https://github.com/ria-com/auto-ria-rest-api/blob/master/AUTO_RIA_API/README.md#user-content-%D0%9E%D0%BF%D1%86%D0%B8%D0%B8)
+
+ Полное описание сервиса "Получение информации об опциях объявления" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+### Добавление опций
+
+Для добавления опций в объявление, Вам необходимо выполнить PUT запрос такого вида:
+
+curl -X POST "https://developers.ria.com/auto/used/autos/advertisementId/options?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d "[ { \"id\": ID опции }]"
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, "id": - ID нужной Вам опции, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X POST "https://developers.ria.com/auto/used/autos/20438832/options?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json" -H "content-type: application/json" -d "[ { \"id\": 525 }]"`
+
+**Пример успешного ответа:**
+````json
+{"message":"Ok",
+
+"errors":[],
+
+"success":true}
+````
+ Полное описание сервиса "Добавление опций" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+### Удаление опций
+
+Для удаления опций объявления, Вам необходимо отправить **DELETE** запрос такого вида:
+
+`curl -X DELETE "https://developers.ria.com/auto/used/autos/advertisementId/options/ids?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, "id": - ID нужной Вам опции, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X DELETE "https://developers.ria.com/auto/used/autos/20438832/options/125,525,481?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+
+### Получение фильтров на обмен по вашему обьявлению
+
+Для получения опций в объявление, Вам необходимо выполнить GET запрос такого вида:
+
+https://developers.ria.com/auto/used/autos/advertisementId/exchangeFilters?user_id=Ваш ID&api_key=YOUR_API_KEY
+
+или `curl -X GET "https://developers.ria.com/auto/used/autos/advertisementId/exchangeFilters?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X GET "https://developers.ria.com/auto/used/autos/20438832/exchangeFilters?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+**Пример успешного ответа:**
+
+````json
+
+[
+  {
+    "id": 2930510,   // Id добавленного фильтра
+    "brand": {
+      "id": 6
+    },
+    "model": {
+      "id": 3460
+    },
+    "year": {
+      "lte": 2013,
+      "gte": 2010
+    },
+    "category": {
+      "id": 1
+    },
+    "body": {
+      "id": 3
+    }
+  }
+]
+````
+ Полное описание сервиса "Получение фильтров на обмен по вашему обьявлению" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+### Удаление существующего фильтра на обмен
+
+Для удаления существующего фильтра на обмен, Вам необходимо выполнить DELETE запрос такого вида:
+
+`curl -X DELETE "https://developers.ria.com/auto/used/autos/advertisementId/exchangeFilter/filterId?user_id=Ваш ID&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *user_id* - Ваш ID в системе RIA.com, *advertisementId* - ID нужного Вам объявления, *filterId* - ID выбраного Вами фильтра, *api_key* - Ваш ключ.
+
+**Пример запроса**
+
+`curl -X DELETE "https://developers.ria.com/auto/used/autos/20438832/exchangeFilter/2930510?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+ Полное описание сервиса "Удаление существующего фильтра на обмен" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+
+
 ## Ошибки
 
 |  Код ошибки           | HTTP Status Code| Описание   |
