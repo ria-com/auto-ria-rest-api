@@ -79,8 +79,8 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 |  [Опции](#user-content-Опции)              |  options                  |  `Number[]`      |
 |  Пробег             |  raceInt                  |  `Number[]`  |
 |  Количество дверей  |  door                     |  `Number`      |
-|  [Область](#user-content-Области)            |  state_id                 |  `Number`      |
-|  [Город](#user-content-Города)              |  city_id                  |  `Number`      |
+|  [Область](#user-content-Области)            |  state                 |  `Number`      |
+|  [Город](#user-content-Города)              |  city                  |  `Number`      |
 |  Грузоподъемность   |  carrying                 |  `Number`      |
 |  Количество мест    |  seats                    |  `Number`      |
 |  [Цвет](#user-content-Цвета)               |  color_id                 |  `Number`      |
