@@ -361,7 +361,7 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 
 Пример успешного ответа:
 
-```javascript
+```json
 [
  {
   "userId": 489269,                                                                       // id пользователя
@@ -2145,6 +2145,415 @@ https://developers.ria.com/auto/used/autos/advertisementId/exchangeFilters?user_
 `curl -X DELETE "https://developers.ria.com/auto/used/autos/20438832/exchangeFilter/2930510?user_id=7069830&api_key=YOUR_API_KEY" -H "accept: application/json"`
 
  Полное описание сервиса "Удаление существующего фильтра на обмен" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
+
+
+
+# Новые Авто
+
+## Методы для работы с Параметрами
+
+### Типы транспорта
+
+Что бы получить список типов транспорта нужно отправив GET запрос на адрес [https://developers.ria.com/auto/categories/?api_key=YOUR_API_KEY](https://developers.ria.com/auto/categories/?api_key=YOUR_API_KEY). Результат будет примерно следующим:
+```javascript
+[
+    { name: "Легковые", value: 1 },
+    { name: "Мото", value: 2 },
+    { name: "Водный транспорт", value: 3 },
+    { name: "Спецтехника", value: 4 },
+    { name: "Прицеп", value: 5 },
+    { name: "Грузовик", value: 6 },
+    { name: "Автобус", value: 7 },
+    { name: "Автодом", value: 8 },
+]
+```
+## Методы для работы с марками и моделями
+### Марки
+
+Марки зависят от типов транспорта. Поэтому для того, чтобы получить список марок необходимо отправить GET запрос по адресу `https://developers.ria.com/auto/new/marks?category_id=id&api_key=YOUR_API_KEY`, где *category_id* - идентификатор типа транспорта, *api_key*- Ваш ключ.
+
+Например, для легковых автомобилей ([https://developers.ria.com/auto/new/marks?category_id=1&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/marks?category_id=1&api_key=YOUR_API_KEY)), результат будет следующим:
+```javascript
+[
+  {
+    "name": "Acura",
+    "marka_id": 98,
+    "eng": "acura",
+    "country_id": 392,
+    "category_id": 1
+  },
+  {
+    "name": "Alfa Romeo",
+    "marka_id": 3,
+    "eng": "alfa-romeo",
+    "country_id": 380,
+    "category_id": 1
+  },
+  {
+    "name": "Aston Martin",
+    "marka_id": 5,
+    "eng": "aston-martin",
+    "country_id": 826,
+    "category_id": 1
+  },
+  {
+    "name": "Audi",
+    "marka_id": 6,
+    "eng": "audi",
+    "country_id": 276,
+    "category_id": 1
+  },
+  {
+    "name": "Bentley",
+    "marka_id": 8,
+    "eng": "bentley",
+    "country_id": 826,
+    "category_id": 1
+  },
+]  
+.......
+```
+### Модели
+
+Модели зависят от типов транспорта и марок. Следовательно список марок можно получить по адресу `https://developers.ria.com/auto/new/models?marka_id=id&category_id=id&api_key=YOUR_API_KEY`, где *category_id* - идентификатор типа транспорта а *marka_id* - идентификатор марки, *api_key*- Ваш ключ.
+
+Например, для легкового автомобиля BMW ([https://developers.ria.com/auto/new/models?marka_id=9&category_id=1&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/models?marka_id=9&category_id=1&api_key=YOUR_API_KEY)), список моделей будет следующим:
+```javascript
+[
+  {
+    "parent_id": 0,
+    "name": "1 Series",
+    "model_id": 2161,
+    "marka_id": 9,
+    "eng": "1-series",
+    "category_id": "1"
+  },
+  {
+    "parent_id": 0,
+    "name": "2 Series",
+    "model_id": 43023,
+    "marka_id": 9,
+    "eng": "2-series",
+    "category_id": "1"
+  },
+  {
+    "parent_id": 0,
+    "name": "3 Series",
+    "model_id": 3219,
+    "marka_id": 9,
+    "eng": "3-series",
+    "category_id": "1"
+  },
+  {
+    "parent_id": 3219,
+    "name": "3 Series GT",
+    "model_id": 43029,
+    "marka_id": 9,
+    "eng": "3-series-gt",
+    "category_id": "1"
+  },
+  {
+    "parent_id": 0,
+    "name": "4 Series",
+    "model_id": 42495,
+    "marka_id": 9,
+    "eng": "4-series",
+    "category_id": "1"
+  },
+]  
+.......
+````
+### Поколение модели нового авто
+  
+Поколение зависит от модели нового авто. Следовательно список поколений можно получить  отправив GET запрос на адрес `https://developers.ria.com/auto/new/generation?model_id=id&api_key=YOUR_API_KEY`, где  *model_id* - модель выбранного авто, *api_key*- Ваш ключ.
+
+Например, для модели BMW X6 ([https://developers.ria.com/auto/new/generation?model_id=2153&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/generation?model_id=2153&api_key=YOUR_API_KEY)), список поколений будет следующим:
+
+```javascript
+[
+  {
+    "year_to": 2014,
+    "year_from": 2012,
+    "name": "E71 (рестайлінг)",
+    "model_id": 2153,
+    "marka_id": 9,
+    "generation_id": 432,
+    "eng": "e71-restajling"
+  },
+  {
+    "year_to": 0,
+    "year_from": 2014,
+    "name": "F16",
+    "model_id": 2153,
+    "marka_id": 9,
+    "generation_id": 433,
+    "eng": "f16"
+  },
+  {
+    "year_to": 2010,
+    "year_from": 2008,
+    "name": "E71",
+    "model_id": 2153,
+    "marka_id": 9,
+    "generation_id": 3275,
+    "eng": "e71"
+  }
+]
+````
+
+### Типы кузова в поколении новых авто
+    
+Тип кузова зависит от поколения авто. Поэтому для того, чтобы получить список типов кузова необходимо отправить GET запрос на адрес `https://developers.ria.com/auto/new/generation_bodystyles?generation_id=id&api_key=YOUR_API_KEY` , где *generation_id* - поколение авто, *api_key*- Ваш ключ.
+
+Например, для модели BMW X6 в поколении E71 (рестайлінг) ([https://developers.ria.com/auto/new/generation_bodystyles?generation_id=432&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/generation_bodystyles?generation_id=432&api_key=YOUR_API_KEY)), список типов кузова будет следующим:
+
+```javascript
+[
+  {
+    "generation_bodystyle_id": 538,
+    "bodystyle_id": 324
+  }
+]
+```
+
+### Модификации (базы) по типу кузова в поколении
+    
+Модификация (базы) зависит от типа кузова в поколении. Получить их список можно отправив GET запрос по адресу `https://developers.ria.com/auto/new/generation_bodystyles_bases?generation_bodystyle_id=id&api_key=YOUR_API_KEY` , где *generation_bodystyle_id* - типов кузова, *api_key*- Ваш ключ.
+
+Например, для модели BMW X6 в поколении E71 (рестайлінг) ([https://developers.ria.com/auto/new/generation_bodystyles_bases?generation_bodystyle_id=538&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/generation_bodystyles_bases?generation_bodystyle_id=538&api_key=YOUR_API_KEY)), список модификаций будет следующим:
+
+```javascript
+[
+  {
+    "name": "50i AT (407 л.с.) xDrive",
+    "model_id": 2153,
+    "marka_id": 9,
+    "generation_bodystyle_id": 538,
+    "base_id": 9036
+  },
+  {
+    "name": "40d AT (306 л.с.) xDrive",
+    "model_id": 2153,
+    "marka_id": 9,
+    "generation_bodystyle_id": 538,
+    "base_id": 15821
+  }
+]
+```
+### Комплектации авто по модификации
+    
+Комплектации авто зависит от модификации (базы). Получить их список можно отправив GET запрос по адресу `https://developers.ria.com/auto/new/equip_base?base_id=id&api_key=YOUR_API_KEY`, где *base_id* - id модификации (базы), *api_key*- Ваш ключ.
+
+Например, для модели BMW X6 E71 50i AT (407 л.с.) xDrive  ([https://developers.ria.com/auto/new/equip_base?base_id=9036&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/equip_base?base_id=9036&api_key=YOUR_API_KEY))  список комплектации будет следующим:
+
+```javascript
+[
+  {
+    "year": "2011",
+    "name": "base",
+    "equip_id": 9933,
+    "base_id": 9036
+  },
+  {
+    "year": "2012",
+    "name": "base",
+    "equip_id": 18668,
+    "base_id": 9036
+  },
+  {
+    "year": "2013",
+    "name": "base",
+    "equip_id": 26251,
+    "base_id": 9036
+  },
+  {
+    "year": "2014",
+    "name": "base",
+    "equip_id": 36709,
+    "base_id": 9036
+  },
+  {
+    "year": "2015",
+    "name": "base",
+    "equip_id": 58678,
+    "base_id": 9036
+  },
+  {
+    "year": "2016",
+    "name": "base",
+    "equip_id": 59806,
+    "base_id": 9036
+  },
+  {
+    "year": "2017",
+    "name": "base",
+    "equip_id": 79274,
+    "base_id": 9036
+  }
+]
+
+```
+
+### Список всех объявлений
+
+Чтобы получить список объявлений, Вам необходимо выполнить GET запрос такого вида:
+
+([https://developers.ria.com/auto/new/autos?user_id=Ваш id&api_key=YOUR_API_KEY](https://developers.ria.com/auto/new/autos?user_id=Ваш id&api_key=YOUR_API_KEY)) , где *user_id* - Ваш ID в системе RIA.com, *api_key* - Ваш ключ.
+
+**Пример запроса**
+`https://developers.ria.com/auto/new/autos?user_id=4784009&api_key=YOUR_API_KEY`
+
+**Пример успешного ответа:**
+
+```javascript
+{
+  "archive": [
+    1540934,
+    1540935,
+    1540936,
+    1540937,
+    1603783,
+    1618647,
+    1618648,
+    1618787,
+    1619070,
+    1619076,
+    1619077,
+    1619078,
+    1619079,
+    1619080,
+    1621260,
+    1621420,
+    1623522,
+    1623562,
+    1623565,
+    1623630,
+    1627132,
+    1628973,
+    1628974,
+    1628975,
+    1628979,
+    1628980,
+    1628981,
+    1629094,
+    1629326,
+    1630728,
+    1630729,
+    1630730,
+    1630731,
+    1630732,
+    1630733,
+    1630734,
+    1630735,
+    1630736,
+    1630737,
+    1630738,
+    1630739,
+    1630740,
+    1630741,
+    1630742,
+    1630819,
+    1631564,
+    1632314,
+    1633318,
+    1636224,
+    1636225,
+ 
+  ],
+  "active": [
+    1696177
+  ]
+}
+```
+Расшифровка параметров
+
+- *active* - Активные объявления
+
+- *archive* - Объявления в архиве
+
+### Создание нового объявления 
+
+ Для создания нового объявления, вам необходимо выполнить **POST** запрос такого вида:
+ 
+`curl -X POST "https://developers.ria.com/auto/new/autos?user_id=4784009&marka_id=id&model_id=id&base_id=id&equip_id=id&currency_id=id&price=цена&in_stock=id&test_drive=id&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+
+Обязательными параметрами являются:
+- *user_id* - Ваш ID в системе RIA.com
+- *marka_id* - Марка автомобиля
+- *model_id* - Модель автомобиля
+- *base_id* - Модификация ( базы ) по типу кузова
+- *equip_id* - Комплектация автомобиля
+- *currency_id* - Валюта в которой продаете автомобиль (1 - доллары США, 2 - евро, 3 - гривна)
+
+Дополнительные параметры:
+- *price* - Цена
+- *auto_note* - Описание
+- *version* - Версия (пример 2.0 TDI)
+- *in_stock* - В наличии  (1 - в наличии, 0 - нет в наличии)
+- *test_drive* - Возможность пройти тест драйв (1 - есть возможность, 0 - нету возможности)
+
+**Пример запроса**
+
+`curl -X POST "https://developers.ria.com/auto/new/autos?user_id=4784009&marka_id=9&model_id=2153&base_id=9036&equip_id=79274&currency_id=1&price=50000&in_stock=1&test_drive=1&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+**Пример успешного ответа:**
+
+```javascript
+{
+  "num_rows": 1,
+  "last_insert_id": 1696388
+}
+```
+
+### Редактирование объявления
+
+Для редактирования основной информации объявления, вам необходимо отправить **PUT** запрос такого вида:
+
+`curl -X PUT "https://developers.ria.com/auto/new/autos?user_id=Ваш id&auto_id=id&currency_id=id&price=Цена&auto_note=Test&in_stock=id&test_drive=id&api_key=YOUR_API_KEY" -H "accept: application/json" -H "Content-Length: 0"`
+
+Обязательными параметрами являются:
+- *user_id* - Ваш ID в системе RIA.com
+- *auto_id* - ID нужного Вам объявления
+- *currency_id* - Валюта в которой продаете автомобиль (1 - доллары США, 2 - евро, 3 - гривна)
+- *Content-Length* - размер возвращаемого документа (Content-Length: 0)
+
+Дополнительные параметры:
+- *price* - Цена
+- *auto_note* - Описание
+- *version* - Версия (пример 2.0 TDI)
+- *in_stock* - В наличии   (1 - в наличии, 0 - нет в наличии)
+- *test_drive* - Возможность пройти тест драйв (1 - есть возможность, 0 - нету возможности)
+
+**Пример запроса**
+
+`curl -X PUT "https://developers.ria.com/auto/new/autos?user_id=4784009&auto_id=1696388&currency_id=2&price=55000&auto_note=Test&in_stock=0&test_drive=0&api_key=YOUR_API_KEY" -H "accept: application/json" -H "Content-Length: 0"`
+
+**Пример успешного ответа:**
+
+```javascript
+{"num_rows":1,
+"last_insert_id":0}
+```
+
+### Удаление объявления
+
+Для удаления объявления, Вам необходимо отправить **DELETE** запрос такого вида:
+
+`curl -X DELETE "https://developers.ria.com/auto/new/autos?user_id=id&auto_id=id&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+, где *auto_id* - ваш ID в системе RIA.com, *auto_id* - id нужного Вам объявления, *api_key* - ваш ключ.
+
+**Пример запроса**
+
+`curl -X DELETE "https://developers.ria.com/auto/new/autos?user_id=4784009&auto_id=1696388&api_key=YOUR_API_KEY" -H "accept: application/json"`
+
+**Пример успешного ответа:**
+
+```javascript
+{"num_rows":1,
+"last_insert_id":0}
+```
 
 
 
