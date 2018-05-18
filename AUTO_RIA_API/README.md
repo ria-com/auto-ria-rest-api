@@ -2164,7 +2164,6 @@ https://developers.ria.com/auto/used/autos/advertisementId/exchangeFilters?user_
 
 Полное описание сервиса "Добавления фотографий к объявлению" описаный с помощью стандарта **DeFacto swagger 2.0** [здесь](http://swagger.ria.com/ui/?api=auto/advertisements#/)
 
-
 **Пример запроса**
 
 `curl -X POST "https://developers.ria.com/auto/used/autos/21739303/photos/upload?user_id=7069830&api_key=bVjbA3izvnu04o7Pliw41bXAlY3mIj03CfQpeMNC" -H "accept: application/json" -H "content-type: application/json" -d "{ \"main\": \"https://cdn0.riastatic.com/photosnew/auto/photo/bmw_320__213471725fx.jpg\", \"links\": [ \"https://cdn0.riastatic.com/photosnew/auto/photo/bmw_320__213471725fx.jpg\", \"https://cdn0.riastatic.com/photosnew/auto/photo/bmw_320__213471726fx.jpg\" ]}"`
