@@ -76,7 +76,7 @@ https://developers.ria.com/auto/search?api_key=YOUR_API_KEY&PARAMETERS
 |  [Коробка передач](#user-content-Коробки-передач)    |  gear_id                  |  `Number[]`      |
 |  [Тип топлива](#user-content-Типы-топлива)        |  type_id                  |  `Number[]`      |
 |  [Тип привода](#user-content-Типы-топлива)        |  drive_id                 |  `Number`      |
-|  [Опции](#user-content-Опции)              |  options                  |  `Number[]`      |
+|  [Опции](#user-content-Опции)              |  auto_options                  |  `Number[]`      |
 |  Пробег             |  raceInt                  |  `Number[]`  |
 |  Количество дверей  |  door                     |  `Number`      |
 |  [Область](#user-content-Области)            |  state                 |  `Number`      |
