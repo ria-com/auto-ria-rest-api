@@ -896,9 +896,9 @@ https://developers.ria.com/auto/info?api_key=YOUR_API_KEY&auto_id=19050985
 
 ### Опции
 
-Опции зависят от типа транспорта. Получить их список можно отправив GET запрос по адресу `https://developers.ria.com/auto/categories/:categoryId/options?api_key=YOUR_API_KEY`, где *categoryId* - идентификатор типа транспорта, *api_key*- Ваш ключ.
+Опции зависят от типа транспорта. Получить их список можно отправив GET запрос по адресу `https://developers.ria.com/auto/categories/:categoryId/auto_options?api_key=YOUR_API_KEY`, где *categoryId* - идентификатор типа транспорта, *api_key*- Ваш ключ.
 
-Например, список опций для легковых автомобилей ([https://developers.ria.com/auto/categories/1/options?api_key=YOUR_API_KEY](https://developers.ria.com/auto/categories/1/options?api_key=YOUR_API_KEY)) будет выглядеть примерно так:
+Например, список опций для легковых автомобилей ([https://developers.ria.com/auto/categories/1/auto_options?api_key=YOUR_API_KEY](https://developers.ria.com/auto/categories/1/auto_options?api_key=YOUR_API_KEY)) будет выглядеть примерно так:
 ```javascript
 [
     { name: "ABD", value: 354 },
