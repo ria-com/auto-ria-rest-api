@@ -2,6 +2,8 @@
 
 # AUTO.RIA
 
+Для перегляду актуальної документації перейдіть в розділ ["Документація"](https://developers.ria.com/docs/)
+
 Для получения **API_KEY** нужно зарегестрироваться на [Developers.ria.com](https://developers.ria.com/)
 
 ```
